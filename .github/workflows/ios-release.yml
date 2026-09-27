@@ -52,6 +52,18 @@ jobs:
       - name: Generate Xcode project
         run: brew install xcodegen && xcodegen generate
 
+      - name: Verify App Store Connect app record
+        id: app-record
+        run: |
+          set -euo pipefail
+          TOKEN=$(ruby Scripts/app_store_connect_token.rb "$API_KEY_ID" "$API_ISSUER_ID" "$API_KEY_PATH")
+          echo "::add-mask::$TOKEN"
+          curl --fail --silent --show-error \
+            -H "Authorization: Bearer $TOKEN" \
+            'https://api.appstoreconnect.apple.com/v1/apps?limit=200' \
+            > "$RUNNER_TEMP/apps.json"
+          python3 Scripts/verify_app_store_app.py "$RUNNER_TEMP/apps.json" 'com.actiondesk.lifeadmin'
+
       - name: Create unsigned release archive
         run: |
           set -o pipefail
