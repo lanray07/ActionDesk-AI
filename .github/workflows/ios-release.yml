@@ -62,7 +62,7 @@ jobs:
             -H "Authorization: Bearer $TOKEN" \
             'https://api.appstoreconnect.apple.com/v1/apps?limit=200' \
             > "$RUNNER_TEMP/apps.json"
-          python3 Scripts/verify_app_store_app.py "$RUNNER_TEMP/apps.json" 'com.actiondesk.lifeadmin'
+          python3 Scripts/verify_app_store_app.py "$RUNNER_TEMP/apps.json" 'com.ActionDeskAI.app'
 
       - name: Create unsigned release archive
         run: |

@@ -26,7 +26,7 @@ targets:
       - path: ActionDeskAI/Resources/PrivacyInfo.xcprivacy
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.actiondesk.lifeadmin
+        PRODUCT_BUNDLE_IDENTIFIER: com.ActionDeskAI.app
         INFOPLIST_FILE: ActionDeskAI/Resources/Info.plist
         CODE_SIGN_ENTITLEMENTS: ActionDeskAI/Resources/ActionDeskAI.entitlements
         PRODUCT_NAME: ActionDeskAI
