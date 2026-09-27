@@ -1,0 +1,18 @@
+{
+  "locale": "en-GB",
+  "currency": "£",
+  "date": "14 October",
+  "screens": [
+    {"id":"01-life-admin","headline":"YOUR AI LIFE ADMIN ASSISTANT","support":"Turn paperwork into clear next steps.","background":"household-bill.png","proof":"What needs your attention","detail":"4 clear actions"},
+    {"id":"02-scan","headline":"SCAN BILLS, LETTERS & DOCUMENTS","support":"Find dates, amounts and deadlines automatically.","background":"freelancer-renewal.png","proof":"Document scanned","detail":"3 important details found"},
+    {"id":"03-deadline","headline":"NEVER MISS A BILL OR DEADLINE","support":"Smart reminders for payments, renewals and appointments.","background":"household-bill.png","proof":"£186.40 due 14 October","detail":"Reminder created"},
+    {"id":"04-renewals","headline":"TRACK SUBSCRIPTIONS & RENEWALS","support":"See what's renewing before you're charged.","background":"freelancer-renewal.png","proof":"Car insurance renewal","detail":"Premium increased 25.7%"},
+    {"id":"05-summaries","headline":"AI DOCUMENT SUMMARIES","support":"Understand complicated paperwork in plain language.","background":"household-bill.png","proof":"What this means","detail":"Confirmed facts • Next steps"},
+    {"id":"06-drafts","headline":"DRAFT EMAILS IN SECONDS","support":"Create enquiries, cancellations and follow-ups from your documents.","background":"freelancer-renewal.png","proof":"Billing enquiry","detail":"Editable draft ready to review"},
+    {"id":"07-voice","headline":"ASK WITH YOUR VOICE","support":"“What's due this week?”","background":"household-bill.png","proof":"Listening…","detail":"Review before taking action"},
+    {"id":"08-warranties","headline":"TRACK WARRANTIES & RETURNS","support":"Remember return windows and warranty deadlines.","background":"family-return.png","proof":"Return by 6 October","detail":"12 days remaining"},
+    {"id":"09-inbox","headline":"YOUR PERSONAL ACTION INBOX","support":"Bills, appointments, renewals and follow-ups in one place.","background":"freelancer-renewal.png","proof":"Urgent • Due soon • Waiting","detail":"Calmly ordered for you"},
+    {"id":"10-private","headline":"PRIVATE LIFE ADMIN ORGANIZER","support":"Keep important paperwork organized and protected.","background":"family-return.png","proof":"Privacy Lock","detail":"Protected local app storage"}
+  ]
+}
+

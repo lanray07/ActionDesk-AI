@@ -1,0 +1,8 @@
+.DS_Store
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.build/
+ActionDeskAI.xcodeproj/
+Localization/source-hashes.json
+Localization/translation-review.json
