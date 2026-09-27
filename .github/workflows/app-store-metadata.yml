@@ -1,0 +1,50 @@
+name: Upload App Store Metadata and Screenshots
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-store-metadata
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: macos-15
+    timeout-minutes: 35
+    environment: app-store-connect
+    env:
+      API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
+      API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate and prepare App Store Connect key
+        env:
+          API_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_API_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          for name in API_KEY_ID API_ISSUER_ID API_PRIVATE_KEY; do
+            if [[ -z "${!name:-}" ]]; then echo "::error::$name is missing"; exit 1; fi
+          done
+          KEY_PATH="$RUNNER_TEMP/AuthKey_${API_KEY_ID}.p8"
+          if [[ "$API_PRIVATE_KEY" == *"BEGIN PRIVATE KEY"* ]]; then
+            printf '%s' "$API_PRIVATE_KEY" > "$KEY_PATH"
+          else
+            printf '%s' "$API_PRIVATE_KEY" | base64 --decode > "$KEY_PATH"
+          fi
+          chmod 600 "$KEY_PATH"
+          echo "API_KEY_PATH=$KEY_PATH" >> "$GITHUB_ENV"
+
+      - name: Stage localized screenshots
+        run: |
+          set -euo pipefail
+          mkdir -p fastlane/screenshots/en-GB
+          cp Marketing/Screenshots/AppStore/en-GB/iPhone-6.5/*.jpg fastlane/screenshots/en-GB/
+          cp Marketing/Screenshots/AppStore/en-GB/iPad-13/*.jpg fastlane/screenshots/en-GB/
+
+      - name: Upload metadata and twenty screenshots
+        run: fastlane ios metadata
