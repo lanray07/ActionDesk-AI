@@ -1,0 +1,3 @@
+No account or sign-in is required. The app opens to onboarding and includes deterministic local sample data. Scan/import, Action Inbox, document detail, reminders and search can be reviewed without external credentials.
+
+The preview intelligence in this build is local and deterministic. ActionDesk does not automatically send emails, make payments or provide legal advice. Users review and confirm consequential actions.

@@ -11,10 +11,17 @@ platform :ios do
       in_house: false
     )
 
+    latest_build = latest_testflight_build_number(
+      api_key: api_key,
+      app_identifier: "com.ActionDeskAI.app",
+      version: "1.0"
+    )
+
     upload_to_app_store(
       api_key: api_key,
       app_identifier: "com.ActionDeskAI.app",
       app_version: "1.0",
+      build_number: latest_build,
       platform: "ios",
       metadata_path: "fastlane/metadata",
       screenshots_path: "fastlane/screenshots",
