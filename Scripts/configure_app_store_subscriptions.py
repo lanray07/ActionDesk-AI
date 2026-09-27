@@ -103,14 +103,14 @@ def main() -> None:
             "product_id": "com.actiondesk.lifeadmin.pro.monthly",
             "period": "ONE_MONTH",
             "display": "ActionDesk Pro Monthly",
-            "description": "Advanced AI analysis, voice, smart drafts, tracking, search and export.",
+            "description": "AI analysis, voice, drafts, tracking, search and export.",
         },
         {
             "reference": "ActionDesk Pro Annual",
             "product_id": "com.actiondesk.lifeadmin.pro.annual",
             "period": "ONE_YEAR",
             "display": "ActionDesk Pro Annual",
-            "description": "A year of advanced AI analysis, voice, smart drafts, tracking, search and export.",
+            "description": "One year of AI, voice, drafts, tracking and export.",
         },
     ]
 
