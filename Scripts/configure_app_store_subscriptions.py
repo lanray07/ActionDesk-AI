@@ -40,13 +40,19 @@ def get_one(path: str, predicate) -> dict | None:
     return None
 
 
-def create(resource_type: str, attributes: dict, relationship_type: str, relationship_id: str) -> dict:
+def create(
+    resource_type: str,
+    attributes: dict,
+    relationship_name: str,
+    relationship_type: str,
+    relationship_id: str,
+) -> dict:
     payload = {
         "data": {
             "type": resource_type,
             "attributes": attributes,
             "relationships": {
-                relationship_type: {
+                relationship_name: {
                     "data": {"type": relationship_type, "id": relationship_id}
                 }
             },
@@ -66,7 +72,13 @@ def main() -> None:
         lambda item: item["attributes"].get("referenceName") == "ActionDesk Pro",
     )
     if group is None:
-        group = create("subscriptionGroups", {"referenceName": "ActionDesk Pro"}, "app", app["id"])
+        group = create(
+            "subscriptionGroups",
+            {"referenceName": "ActionDesk Pro"},
+            "app",
+            "apps",
+            app["id"],
+        )
         print("Created subscription group: ActionDesk Pro")
     else:
         print("Subscription group already exists: ActionDesk Pro")
@@ -80,6 +92,7 @@ def main() -> None:
             "subscriptionGroupLocalizations",
             {"locale": "en-GB", "name": "ActionDesk Pro"},
             "subscriptionGroup",
+            "subscriptionGroups",
             group["id"],
         )
         print("Created en-GB subscription group localization")
@@ -117,6 +130,7 @@ def main() -> None:
                     "reviewNote": "Unlocks ActionDesk Pro features described in the app paywall.",
                 },
                 "group",
+                "subscriptionGroups",
                 group["id"],
             )
             print(f"Created subscription: {spec['product_id']}")
@@ -136,6 +150,7 @@ def main() -> None:
                     "description": spec["description"],
                 },
                 "subscription",
+                "subscriptions",
                 subscription["id"],
             )
             print(f"Created en-GB localization: {spec['product_id']}")
