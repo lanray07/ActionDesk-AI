@@ -21,7 +21,7 @@ platform :ios do
       api_key: api_key,
       app_identifier: "com.ActionDeskAI.app",
       app_version: "1.0",
-      build_number: latest_build,
+      build_number: latest_build.to_s,
       platform: "ios",
       metadata_path: "fastlane/metadata",
       screenshots_path: "fastlane/screenshots",
