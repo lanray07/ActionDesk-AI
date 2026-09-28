@@ -57,6 +57,8 @@ Use device authentication, protected local storage and controls to export or del
 
 Some features require ActionDesk Pro. Subscription availability and pricing appear before purchase. Terms and privacy policy apply.
 
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+
 ## What's new template
 
 ActionDesk AI [version] makes life admin calmer with [feature]. This update also includes accessibility improvements, localization refinements and reliability fixes.
